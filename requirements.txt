@@ -1,5 +1,7 @@
+ado-py==0.0.7
 appdirs==1.4.4
 APScheduler==3.6.3
+autopep8==1.5.4
 cachelib==0.1
 certifi==2020.12.5
 cffi==1.14.4
@@ -13,6 +15,7 @@ howdoi==2.0.7
 idna==2.10
 keep==2.10
 lxml==4.6.2
+pycodestyle==2.6.0
 pycparser==2.20
 PyGithub==1.54
 Pygments==2.7.3
@@ -24,6 +27,7 @@ pytz==2020.4
 requests==2.25.0
 six==1.15.0
 terminaltables==3.1.0
+toml==0.10.2
 tornado==6.1
 tzlocal==2.1
 urllib3==1.26.2
