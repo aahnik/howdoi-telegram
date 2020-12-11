@@ -18,4 +18,4 @@ def set_commands():
 
 def start_polling():
     from bot import bot
-    bot.main()
+    bot.poll()
