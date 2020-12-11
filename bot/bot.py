@@ -5,7 +5,7 @@ from telegram.ext.filters import Filters
 
 from telegram.ext.messagehandler import MessageHandler
 from .settings import BOT_TOKEN, START_TEXT, HELP_TEXT
-from telegram import Update, parsemode
+from telegram import Update
 from telegram.ext import (Updater,
                           CommandHandler,
                           CallbackContext)
@@ -81,7 +81,7 @@ def unknown(update: Update, context: CallbackContext):
         'Command not recognized. Send /help to learn more.', quote=True)
 
 
-def main():
+def poll():
 
     updater = Updater(token=BOT_TOKEN)
 
