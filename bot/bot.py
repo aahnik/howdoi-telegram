@@ -15,35 +15,62 @@ from telegram.ext import (Updater,
 from telegram import InlineKeyboardButton as IKB, InlineKeyboardMarkup, ParseMode
 
 
-def start(update: Update, context: CallbackContext):
+def start_handler(update: Update, context: CallbackContext):
     ''' Replies to start command '''
     update.message.reply_text(START_TEXT)
+
+
+def help_handler(update: Update, context: CallbackContext):
+    ''' Replies to help command '''
+    update.message.reply_text(HELP_TEXT)
+
+
+def reply_answer(update: Update, question: str, pos: int):
+    answer = get_answers(question, pos)
+    warning = answer.get('warning')
+
+    if warning:
+        update.message.reply_text(warning, quote=True)
+        return
+
+    text = answer.get('answer', 'Not found')
+    link = answer.get('link', 'Not found')
+    button = [[IKB('Go to Source', url=link)], ]
+    markup = InlineKeyboardMarkup(button)
+
+    update.message.reply_text(
+        f'`{text[:3000]}` \n/next',
+        reply_markup=markup,
+        parse_mode=ParseMode.MARKDOWN,
+        quote=True)
 
 
 def question_handler(update: Update, context: CallbackContext):
     ''' Entry point of conversation  this gives  buttons to user'''
 
     question = update.message.text
-    answer = get_answers(question)
-    text = answer.get('answer', 'Not found')
-    link = answer.get('link', 'Not found')
-    button = [[IKB('Go to Source', url=link)],
-              [IKB('Previous ', callback_data='prev'), IKB(' Next', callback_data='next')]]
-    markup = InlineKeyboardMarkup(button)
+    context.user_data['last_question'] = question
+    context.user_data['last_position'] = 1
 
+    reply_answer(update, question, 1)
+
+
+def next_handler(update: Update, context: CallbackContext):
+    ''' Sends the next answer to the last question asked by user '''
+    question = context.user_data.get('last_question')
+    if not question:
+        update.message.reply_text('Please ask a question first !', quote=True)
+        return
+    pos = context.user_data.get('last_position') + 1
+    reply_answer(update, question, pos)
+    context.user_data['last_position'] = pos
+
+
+def last_handler(update: Update, context: CallbackContext):
+    last_question = context.user_data.get('last_question')
+    pos = context.user_data.get('last_position')
     update.message.reply_text(
-        f'`{text[:3000]}`', reply_markup=markup, parse_mode=ParseMode.MARKDOWN, quote=True)
-
-
-# def button_click_handler(update: Update, context: CallbackContext):
-#     ''' This gets executed on button click '''
-#     query = update.callback_query
-#     # shows a small notification inside chat
-#     query.answer(f'button click {query.data} recieved')
-
-#     if query.data == 'name':
-#         context.bot.send_message(chat_id=update.effective_chat.id,
-#                                  text='Send your name', reply_markup=ForceReply())
+        f'Last question:\n*{last_question}* \n\nLast Postion:*{pos}*', quote=True, parse_mode=ParseMode.MARKDOWN)
 
 
 def main():
@@ -58,7 +85,9 @@ def main():
 
     _handlers = {}
 
-    _handlers['start_handler'] = CommandHandler('start', start)
+    _handlers['start_handler'] = CommandHandler('start', start_handler)
+    _handlers['next_handler'] = CommandHandler('next', next_handler)
+    _handlers['whatLast'] = CommandHandler('last', last_handler)
     _handlers['question_handler'] = MessageHandler(
         Filters.text, question_handler)
 
