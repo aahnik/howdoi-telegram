@@ -12,5 +12,7 @@ TODO:
 - [ ] Write deployment guide
 - [ ] improve speed
 - [ ] allow users to customize settings
+- [ ] support inside groups
+
 
 ( please **do not** submit pr for readme)
