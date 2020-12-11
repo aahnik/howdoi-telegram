@@ -4,13 +4,20 @@ import logging
 from telegram.ext.filters import Filters
 
 from telegram.ext.messagehandler import MessageHandler
-from .settings import BOT_TOKEN, START_TEXT, HELP_TEXT
+from .settings import BOT_TOKEN, START_TEXT, HELP_TEXT, PORT, HEROKU_APP_NAME
 from telegram import Update
 from telegram.ext import (Updater,
                           CommandHandler,
                           CallbackContext)
 
 from telegram import InlineKeyboardButton as IKB, InlineKeyboardMarkup, ParseMode
+
+
+updater = Updater(token=BOT_TOKEN)
+dispatcher = updater.dispatcher
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO)
 
 
 def start_handler(update: Update, context: CallbackContext):
@@ -81,30 +88,33 @@ def unknown(update: Update, context: CallbackContext):
         'Command not recognized. Send /help to learn more.', quote=True)
 
 
-def poll():
-
-    updater = Updater(token=BOT_TOKEN)
-
-    dispatcher = updater.dispatcher
-
-    logging.basicConfig(
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        level=logging.INFO)
-
+def add_handlers():
     _handlers = {}
 
     _handlers['start_handler'] = CommandHandler('start', start_handler)
     _handlers['help_handler'] = CommandHandler('help', help_handler)
     _handlers['next_handler'] = CommandHandler('next', next_handler)
     _handlers['whatLast'] = CommandHandler('last', last_handler)
+    _handlers['unknown'] = MessageHandler(Filters.command, unknown)
+
     _handlers['question_handler'] = MessageHandler(
         Filters.text, question_handler)
-    _handlers['unknown'] = MessageHandler(Filters.command, unknown)
 
     for name, _handler in _handlers.items():
         print(f'Adding handler {name}')
         dispatcher.add_handler(_handler)
 
-    updater.start_polling()
 
+def start_polling():
+    add_handlers()
+    updater.start_polling()
     updater.idle()
+    print('Started polling! ')
+
+
+def start_webhook():
+    add_handlers()
+    updater.start_webhook(listen='0.0.0.0',
+                          port=int(PORT),
+                          url_path=BOT_TOKEN)
+    print('Started webhook!')

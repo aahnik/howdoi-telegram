@@ -10,9 +10,9 @@ if not BOT_TOKEN:
 START_TEXT = '''
 Hi! I am alive. *Ask me a question.*
 
-My [source code](https://github.com/aahnik/how_doiBOt) is on GitHub.
+My [source code](https://github.com/aahnik/howdoi-telegram) is on GitHub.
 
-I am made using [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) and [howdoi](https://github.com/gleitz/howdoi)
+I am made using [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) and [howdoi](https://github.com/gleitz/howdoi).
 '''
 
 HELP_TEXT = ''' Any message you send to me is treated as a question. 
@@ -25,5 +25,9 @@ BOT_COMMANDS = [
     ('next', 'get next answer'),
 ]
 
-if __name__ == "__main__":
-    print(BOT_TOKEN)
+
+# webhook settings
+
+PORT = os.environ.get('PORT')
+HEROKU_APP_NAME = os.getenv('HEROKU_APP_NAME')
+WEBHOOK_URL = f'https://{HEROKU_APP_NAME}.herokuapp.com/{BOT_TOKEN}'
