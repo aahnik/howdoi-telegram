@@ -6,13 +6,8 @@ Get to the solution quickly without any distraction.
 
 The bot is currently deployed. Check out [@how_doiBOt](https://telegram.me/how_doiBOt) on Telegram.
 
-TODO:
+Take a look!
 
-- [ ] Write general description
-- [ ] Write deployment guide
-- [ ] improve speed
-- [ ] allow users to customize settings
-- [ ] support inside groups
+![demo-gif](images/howdoi_0.01.gif)
 
-
-( please **do not** submit pr for readme)
+More info to be added soon.

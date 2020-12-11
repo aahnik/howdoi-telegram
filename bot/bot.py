@@ -22,6 +22,7 @@ logging.basicConfig(
 
 def start_handler(update: Update, context: CallbackContext):
     ''' Replies to start command '''
+        
     update.message.reply_text(START_TEXT, parse_mode=ParseMode.MARKDOWN)
 
 
@@ -103,6 +104,7 @@ def add_handlers():
     for name, _handler in _handlers.items():
         print(f'Adding handler {name}')
         dispatcher.add_handler(_handler)
+
 
 
 def start_polling():

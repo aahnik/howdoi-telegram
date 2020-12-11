@@ -15,9 +15,11 @@ My [source code](https://github.com/aahnik/howdoi-telegram) is on GitHub.
 I am made using [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) and [howdoi](https://github.com/gleitz/howdoi).
 '''
 
-HELP_TEXT = ''' Any message you send to me is treated as a question. 
+HELP_TEXT = ''' 
+Any message you send to me is treated as a question.
 
-I will reply the relevant code snippets. You can send /next to get the next answer of the current question. '''
+I will reply the relevant code snippets. You can send /next to get the next answer of the current question.
+'''
 
 BOT_COMMANDS = [
     ('start', 'check whether i am alive'),
