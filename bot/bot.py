@@ -22,7 +22,7 @@ logging.basicConfig(
 
 def start_handler(update: Update, context: CallbackContext):
     ''' Replies to start command '''
-        
+
     update.message.reply_text(START_TEXT, parse_mode=ParseMode.MARKDOWN)
 
 
@@ -89,6 +89,12 @@ def unknown(update: Update, context: CallbackContext):
         'Command not recognized. Send /help to learn more.', quote=True)
 
 
+def howdoi_handler(update: Update, context: CallbackContext):
+    ''' handle /howdoi command in groups '''
+    question = ' '.join(context.args).replace('@how_doiBOt', '')
+    reply_answer(update, question, 1)
+
+
 def add_handlers():
     _handlers = {}
 
@@ -96,6 +102,7 @@ def add_handlers():
     _handlers['help_handler'] = CommandHandler('help', help_handler)
     _handlers['next_handler'] = CommandHandler('next', next_handler)
     _handlers['whatLast'] = CommandHandler('last', last_handler)
+    _handlers['howdoi'] = CommandHandler('howdoi', howdoi_handler)
     _handlers['unknown'] = MessageHandler(Filters.command, unknown)
 
     _handlers['question_handler'] = MessageHandler(
@@ -104,7 +111,6 @@ def add_handlers():
     for name, _handler in _handlers.items():
         print(f'Adding handler {name}')
         dispatcher.add_handler(_handler)
-
 
 
 def start_polling():
