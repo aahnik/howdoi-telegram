@@ -11,3 +11,5 @@ Take a look!
 ![demo-gif](images/howdoi_0.01.gif)
 
 More info to be added soon.
+
+[![promoted](https://raw.githubusercontent.com/aahnik/aahnik/master/promoted/general.gif)](https://aahnik.github.io/aahnik/promoted/general.html)
