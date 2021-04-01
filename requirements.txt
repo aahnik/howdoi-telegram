@@ -14,7 +14,7 @@ Deprecated==1.2.10
 howdoi==2.0.7
 idna==2.10
 keep==2.10
-lxml==4.6.2
+lxml==4.6.3
 pycodestyle==2.6.0
 pycparser==2.20
 PyGithub==1.54
