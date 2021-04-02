@@ -12,4 +12,3 @@ Take a look!
 
 More info to be added soon.
 
-[![promoted](https://raw.githubusercontent.com/aahnik/aahnik/master/promoted/general.gif)](https://aahnik.github.io/aahnik/promoted/general.html)
