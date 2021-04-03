@@ -9,6 +9,3 @@ The bot is currently deployed. Check out [@how_doiBOt](https://telegram.me/how_d
 Take a look!
 
 ![demo-gif](images/howdoi_0.01.gif)
-
-More info to be added soon.
-
