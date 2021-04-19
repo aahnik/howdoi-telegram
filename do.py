@@ -24,12 +24,6 @@ def poll():
     start_polling()
 
 
-def set_webhook():
-    from bot.settings import WEBHOOK_URL
-    from bot.bot import updater
-    updater.bot.set_webhook(WEBHOOK_URL)
-
-
 def hook():
     from bot.bot import start_webhook
     start_webhook()
@@ -38,16 +32,6 @@ def hook():
 def webhook_info():
     from bot.bot import updater
     print(updater.bot.get_webhook_info())
-
-
-def set_hook():
-    from bot.bot import updater
-    from bot.settings import WEBHOOK_URL, HEROKU_APP_NAME
-    if not HEROKU_APP_NAME:
-        print('Heroku app name ( subdomain ) not set')
-        quit()
-    updater.bot.set_webhook(WEBHOOK_URL)
-    print('Success! ')
 
 
 if __name__ == '__main__':
