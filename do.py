@@ -50,4 +50,4 @@ def set_hook():
 if __name__ == '__main__':
     set_webhook()
     set_commands()
-    hook()
+    poll()
