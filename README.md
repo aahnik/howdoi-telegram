@@ -70,6 +70,8 @@ You can click this button to deploy to Heroku.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/aahnik/howdoi-telegram)
 
+<!-- deploy success -->
+
 ## Contributing
 
 Issues and PRs welcome!
