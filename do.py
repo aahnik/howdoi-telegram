@@ -45,3 +45,9 @@ def set_hook():
         quit()
     updater.bot.set_webhook(WEBHOOK_URL)
     print('Success! ')
+
+
+if __name__ == '__main__':
+    set_webhook()
+    set_commands()
+    hook()
