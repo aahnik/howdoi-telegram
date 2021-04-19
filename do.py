@@ -2,6 +2,9 @@
 '''
 
 
+from bot.settings import HEROKU_APP_NAME
+
+
 def set_commands():
     from bot.settings import BOT_TOKEN, BOT_COMMANDS
     from telegram import BotCommand, Bot
@@ -48,6 +51,8 @@ def set_hook():
 
 
 if __name__ == '__main__':
-    set_webhook()
     set_commands()
-    poll()
+    if HEROKU_APP_NAME:
+        hook()
+    else:
+        poll()

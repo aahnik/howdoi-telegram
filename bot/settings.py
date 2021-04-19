@@ -34,6 +34,4 @@ PORT = os.environ.get('PORT')
 HEROKU_APP_NAME = os.getenv('HEROKU_APP_NAME')
 WEBHOOK_URL = f'https://{HEROKU_APP_NAME}.herokuapp.com/{BOT_TOKEN}'
 
-print(f'PORT {PORT}')
-print(f'HEROKU_APP_NAME {HEROKU_APP_NAME}')
-print(f'WEBHOOK_URL {WEBHOOK_URL}')
+print(f'Debugging Log: {PORT} {HEROKU_APP_NAME}')

@@ -1,3 +1,1 @@
-release: ado set_hook
-release: ado set_commands
-web: ado hook
+web: python do.py
