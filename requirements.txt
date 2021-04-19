@@ -30,5 +30,5 @@ terminaltables==3.1.0
 toml==0.10.2
 tornado==6.1
 tzlocal==2.1
-urllib3==1.26.3
+urllib3==1.26.4
 wrapt==1.12.1
