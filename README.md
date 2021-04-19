@@ -17,7 +17,7 @@ Take a look!
     ```bash
     # the following commands should not produce error
     git --version
-    python --version # should be above 3.6
+    python --version # 3.9 is recommended
     pip --version
     ```
 
