@@ -11,7 +11,7 @@ cryptography==3.3.2
 cssselect==1.1.0
 decorator==4.4.2
 Deprecated==1.2.10
-howdoi==2.0.7
+howdoi==2.0.15
 idna==2.10
 keep==2.10
 lxml==4.6.3
