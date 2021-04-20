@@ -8,7 +8,11 @@ Take a look!
 
 ![demo-gif](images/howdoi_0.01.gif)
 
-## Run Locally
+## How to run
+
+You can run on any OS (windows/mac/linux). For better reliability, you may deploy to a VPS like Digital Ocean Droplet. You can even run on Android, using the Termux app.
+
+Open your terminal and follow the instructions to run the bot.
 
 - Make sure you have `git`, `python` and `pip`.
 
