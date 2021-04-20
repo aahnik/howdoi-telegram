@@ -4,8 +4,6 @@ A telegram bot for accessing [gleitz/howdoi](https://github.com/gleitz/howdoi). 
 
 Get to the solution quickly without any distraction.
 
-The bot is currently deployed. Check out [@how_doiBOt](https://telegram.me/how_doiBOt) on Telegram.
-
 Take a look!
 
 ![demo-gif](images/howdoi_0.01.gif)
