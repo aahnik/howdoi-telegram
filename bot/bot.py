@@ -117,5 +117,5 @@ def start_polling():
     add_handlers()
     updater.bot.delete_webhook()
     print('Started polling! ')
-    updater.start_polling()
+    updater.start_polling(clean=True)
     updater.idle()
