@@ -4,7 +4,7 @@ import logging
 from telegram.ext.filters import Filters
 
 from telegram.ext.messagehandler import MessageHandler
-from .settings import BOT_TOKEN, START_TEXT, HELP_TEXT, PORT, HEROKU_APP_NAME, WEBHOOK_URL
+from .settings import BOT_TOKEN, START_TEXT, HELP_TEXT
 from telegram import Update
 from telegram.ext import (Updater,
                           CommandHandler,
