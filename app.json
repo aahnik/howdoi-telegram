@@ -10,11 +10,6 @@
       "description": "Put your BOT token obtained from @BotFather",
       "value": "",
       "required": true
-    },
-    "HEROKU_APP_NAME": {
-      "description": "Put the name of your app again, (that you set in heroku)",
-      "value": "",
-      "required": true
     }
   }
 }

@@ -4,7 +4,7 @@ import logging
 from telegram.ext.filters import Filters
 
 from telegram.ext.messagehandler import MessageHandler
-from .settings import BOT_TOKEN, START_TEXT, HELP_TEXT, PORT, HEROKU_APP_NAME,WEBHOOK_URL
+from .settings import BOT_TOKEN, START_TEXT, HELP_TEXT, PORT, HEROKU_APP_NAME, WEBHOOK_URL
 from telegram import Update
 from telegram.ext import (Updater,
                           CommandHandler,
@@ -116,14 +116,6 @@ def add_handlers():
 def start_polling():
     add_handlers()
     updater.bot.delete_webhook()
+    print('Started polling! ')
     updater.start_polling()
     updater.idle()
-    print('Started polling! ')
-
-
-def start_webhook():
-    add_handlers()
-    updater.start_webhook(listen='0.0.0.0',
-                          port=int(PORT),
-                          url_path=BOT_TOKEN,webhook_url=WEBHOOK_URL)
-    print('Started webhook!')
